@@ -49,7 +49,7 @@ Tool ini cocok digunakan jika kamu:
 
 ## 📸 Preview
 
-> _(Tambahkan screenshot atau GIF demo di sini jika diperlukan)_
+![Preview Aplikasi](public/ss/migration.png)
 
 ---
 
