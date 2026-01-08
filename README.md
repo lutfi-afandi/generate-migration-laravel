@@ -50,6 +50,7 @@ Tool ini cocok digunakan jika kamu:
 ## 📸 Preview
 
 ![Preview Aplikasi](public/ss/migration.png)
+![Preview Aplikasi](public/ss/migration2.png)
 
 ---
 

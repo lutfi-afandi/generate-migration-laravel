@@ -81,12 +81,16 @@ class MigrasiController extends Controller
     }
 
 
-    public function all()
+    public function all($database)
     {
-        $tables = DB::select('SHOW TABLES');
-        $db = DB::getDatabaseName();
+        // switch database
+        DB::statement("USE `$database`");
 
-        $tableNames = collect($tables)->map(fn($row) => $row->{"Tables_in_$db"});
+        $tables = DB::select('SHOW TABLES');
+
+        $tableNames = collect($tables)->map(function ($row) {
+            return array_values((array) $row)[0];
+        });
 
         $output = [];
 
@@ -94,8 +98,9 @@ class MigrasiController extends Controller
             $output[$table] = $this->buildMigration($table);
         }
 
-        return view('migrasi.all', compact('output'));
+        return view('migrasi.all', compact('output', 'database'));
     }
+
 
 
     private function buildMigration($table)
